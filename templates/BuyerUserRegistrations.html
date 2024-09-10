@@ -1,0 +1,100 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block contents%}
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-6">
+                <center>
+                    <h2 style="font-size: 22px;" class="mb-0">Buyer Register Form</h2>
+                    <span>&nbsp;</span>
+
+                    <form action="{%url 'BuyerUserRegisterActions'%}" method="POST" class="text-primary"
+                          style="width:100%">
+
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td class="text-primary">Customer Name</td>
+                                <td>{{form.name}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Login ID</td>
+                                <td>{{form.loginid}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Password</td>
+                                <td>{{form.password}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Mobile</td>
+                                <td>{{form.mobile}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>email</td>
+                                <td>{{form.email}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Locality</td>
+                                <td>{{form.locality}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Address</td>
+                                <td>{{form.address}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>City</td>
+                                <td>{{form.city}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>State</td>
+                                <td>{{form.state}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>{{form.status}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="submit" value="Register" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group mt-3">
+                                        <span>&nbsp;</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            {% if messages %}
+                            {% for message in messages %}
+                            <font color='GREEN'> {{ message }}</font>
+                            {% endfor %}
+                            {% endif %}
+
+                        </table>
+
+                    </form>
+                </center>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+{%endblock%}

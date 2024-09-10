@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block contents%}
+<section id="home-section" class="hero">
+		  <div class="home-slider owl-carousel">
+	      <div class="slider-item" style="background-image: url({%static 'images/bg_1.jpg'%});">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+	            <div class="col-md-12 ftco-animate text-center">
+	              <h1 class="mb-2">Admin Login</h1>
+                    <form action="{%url 'AdminLoginCheck'%}" method="POST" class="text-primary" style="width:100%">
+                    {% csrf_token %}
+                    <table>
+                        <div class="form-group row">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="loginid" required placeholder="Enter Login Id">
+                </div>
+              </div>
+                        <div class="form-group row">
+                <div class="col-md-12">
+                  <input type="password" class="form-control" name="pswd" required placeholder="Enter password">
+                </div>
+              </div>
+
+
+                         <div class="form-group row">
+                <div class="col-md-5">
+                                <button class="btn btn-block btn-primary text-white py-3 px-5" style="margin-left:20%;"
+                                        type="submit">
+                                    Login
+                                </button>
+                </div>
+                         </div>
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='GREEN'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+
+
+	              <h2 class="subheading mb-4">If you don't need the ticket, you can sell it to other people and you can get money</h2>
+                    <!--<p><a href="#" class="btn btn-primary">View Details</a></p> -->
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+
+
+	    </div>
+    </section>
+{%endblock%}

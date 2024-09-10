@@ -1,0 +1,48 @@
+{%extends 'admins/adminbase.html'%}
+{%load static%}
+{%block contents%}
+
+<section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+                    <h2>Admin View All Purchased</h2>
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>S.No&nbsp;</th>
+						        <th>Movie name</th>
+								 <th>seller_ Name</th>
+						        <th>Price</th>
+						        <th>Date</th>
+						        <th>Image</th>
+								  <th>paid_Amount</th>
+                                <th>Buyer Name</th>
+
+						      </tr>
+						    </thead>
+						    <tbody>
+                             {% for i in data %}
+                          <tr class="text-center">
+                        <td>{{forloop.counter}}</td>
+                        <td class="product-name">{{i.cropname}} <p>{{i.description}}</p></td>
+						<td>{{i.sellername}}</td>
+                        <td class="quantity">&#x20B9; {{i.price}}</td>
+                        <td>{{i.cdate}}</td>
+                        <td class="image-prod"><div class="img" style="background-image:url({{i.file}});"></div></td>
+						<td>{{ i.rate }}</td>
+                        <td>{{i.buyerusername}}</td>
+
+                    </tr>
+                    {% endfor %}
+						    </tbody>
+						  </table>
+					  </div>
+
+
+    			</div>
+    		</div>
+			</div>
+		</section>
+{%endblock%}

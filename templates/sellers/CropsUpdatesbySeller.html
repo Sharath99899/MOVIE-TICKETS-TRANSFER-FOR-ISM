@@ -1,0 +1,53 @@
+{%extends 'sellers/sellerbase.html'%}
+{%load static%}
+
+{%block contents%}
+<section class="ftco-section img" style="background-image: url({%static 'images/bg_3.jpg'%});">
+    	<div class="container">
+				<div class="row justify-content-end">
+          <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+          	<span class="subheading">Seller Crop Update</span>
+            <p>
+             <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex">
+            <form action="{%url 'SellerCropUpdateAction'%}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="form-group">
+                Crop Name<input type="text" class="form-control" name="cropname" value="{{data.cropname}}" required>
+              </div>
+              <div class="form-group">
+                 Price <input type="number" class="form-control" name="price" value="{{data.price}}" step=any required>
+              </div>
+              <div class="form-group">
+                Description <input type="text" class="form-control" name="description" value="{{data.description}}" required>
+              </div>
+                <input type="hidden" value="{{data.id}}" name="cropid">
+
+              <div class="form-group">
+               Select Crop image  <input type="file" class="form-control" value="{{data.file}}" name="file" accept="image/*" placeholder="Select Product Image" required>
+              </div>
+
+              <div class="form-group">
+                <input type="submit" value="Add Product" class="btn btn-primary py-3 px-5">
+              </div>
+                 {% if messages %}
+                            {% for message in messages %}
+                            <font color='RED'> {{ message }}</font>
+                            {% endfor %}
+                            {% endif %}
+            </form>
+
+          </div>
+            </p>
+ <ol>
+                  <li>This is only for Farmers</li>
+                  <li>Seller must add crop data</li>
+                  <li>Each Item Consider as 1 lb of the price </li>
+              </ol>
+
+          </div>
+        </div>
+    	</div>
+    </section>
+
+{%endblock%}

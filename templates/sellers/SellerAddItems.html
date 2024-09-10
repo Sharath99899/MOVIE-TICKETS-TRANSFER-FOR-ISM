@@ -1,0 +1,60 @@
+{%extends 'sellers/sellerbase.html'%}
+{%load static%}
+
+{%block contents%}
+<section class="ftco-section img" style="background-image: url({%static 'images/bg_3.jpg'%});">
+    	<div class="container">
+				<div class="row justify-content-end">
+          <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+          	<span class="subheading">Add Ticket Details</span>
+            <p>
+             <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex">
+            <form action="{%url 'SellerAddItemsAction'%}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="form-group">
+                <input type="text" class="form-control" name="cropname" placeholder="Enter Movie name" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" name="price" placeholder="Enter Price" step=any required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="description" placeholder="Theater and address" required>
+              </div>
+
+              <div class="form-group">
+                <input type="file" class="form-control" name="file" accept="image/*" placeholder="Select ticket Image" required>
+              </div>
+                <div class="form-group">
+<!--                <input type="text" class="form-control" name="date" placeholder="date and time" required>-->
+<!--                    time datetime="YYYY-MM-DDThh:mm:ssTZD"-->
+<!--                    <li>yyyy-mm-dd</li>-->
+                    <input type="datetime-local" id="meeting-time"
+       name="date" value="2018-06-12T19:30"
+       min="2022-12-01T00:00" max="2050-12-14T00:00">
+              </div>
+
+              <div class="form-group">
+                <input type="submit" value="Add Ticket" class="btn btn-primary py-3 px-5">
+              </div>
+                 {% if messages %}
+                            {% for message in messages %}
+                            <font color='RED'> {{ message }}</font>
+                            {% endfor %}
+                            {% endif %}
+            </form>
+
+          </div>
+            </p>
+ <ol>
+                  <li>This is only for Sellers</li>
+                  <li>Seller must add crop data</li>
+                  <li>Each Item Consider as 1 Ticket of the price </li>
+              </ol>
+
+          </div>
+        </div>
+    	</div>
+    </section>
+
+{%endblock%}

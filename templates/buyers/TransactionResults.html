@@ -1,0 +1,105 @@
+{%extends 'buyers/buyerbase.html'%}
+{%load static%}
+{%block contents%}
+
+<section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+
+    				<div class="cart-list">
+						<center>
+							 <h2>Transaction Details <span class="btn btn-info"> {{request.session.loginid}}</span></h2>
+						<table class="table-bordered">
+							<thead>
+							<th>Fileds</th>
+							<th>Values</th>
+							</thead>
+							<tbody>
+							<tr scope="row" style="color: RED; background-color:#FFFCBB">Current Transcation Details</tr>
+							<tr>
+								<td>c_index </td>
+								<td>{{c_dict_rslt.c_index}} </td>
+							</tr>
+							<tr>
+								<td>Time Stamp </td>
+								<td>{{c_dict_rslt.c_timestamp}} </td>
+							</tr>
+							<tr>
+								<td>Sender Name </td>
+								<td>{{c_dict_rslt.c_sender}} </td>
+							</tr>
+							<tr>
+								<td>Recipient </td>
+								<td>{{c_dict_rslt.c_recipient}}</td>
+							</tr>
+							<tr>
+								<td>Amount </td>
+								<td>{{c_dict_rslt.c_amount}}</td>
+							</tr>
+							<tr>
+								<td>Proof ID </td>
+								<td>{{c_dict_rslt.c_proof}}</td>
+							</tr>
+							<tr>
+								<td>Previous Hash </td>
+								<td>{{c_dict_rslt.c_previous_hash}}</td>
+							</tr>
+							<tr>
+								<td>Amount </td>
+								<td>{{c_dict_rslt.c_amount}}</td>
+							</tr>
+							</tbody>
+						</table>
+
+						<table class="table-bordered" >
+							<tbody>
+
+							<tr scope="row" style="color: BLUE; background-color:#FFFCBB">Previous Transcation Details</tr>
+							<tr>
+								<td>index number </td>
+								<td>{{p_dict_rslt.p_index}} </td>
+							</tr>
+							<tr>
+								<td>Time Stamp </td>
+								<td>{{p_dict_rslt.p_timestamp}} </td>
+							</tr>
+							<tr>
+								<td>Sender Name </td>
+								<td>{{p_dict_rslt.p_sender}} </td>
+							</tr>
+							<tr>
+								<td>Recipient </td>
+								<td>{{p_dict_rslt.p_recipient}}</td>
+							</tr>
+							<tr>
+								<td>Amount </td>
+								<td>{{p_dict_rslt.p_amount}}</td>
+							</tr>
+							<tr>
+								<td>Proof ID </td>
+								<td>{{p_dict_rslt.p_proof}}</td>
+							</tr>
+							<tr>
+								<td>Previous Hash </td>
+								<td>{{p_dict_rslt.p_previous_hash}}</td>
+							</tr>
+							<tr>
+								<td>Amount </td>
+								<td>{{p_dict_rslt.p_amount}}</td>
+							</tr>
+
+
+
+							</tbody>
+
+						</table>
+						</center>
+					  </div>
+
+
+    			</div>
+    		</div>
+			</div>
+		</section>
+{%endblock%}

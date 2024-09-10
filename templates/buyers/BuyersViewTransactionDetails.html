@@ -1,0 +1,46 @@
+{%extends 'buyers/buyerbase.html'%}
+{%load static%}
+{%block contents%}
+
+<section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+                    <h2>Transaction Data <span class="btn btn-info"> {{request.session.loginid}}</span></h2>
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>S.No&nbsp;</th>
+						        <th>Name/ Purchased Amount</th>
+						        <th>Card Number</th>
+						        <th>Expiry Date</th>
+						        <th>Transactin Date</th>
+
+
+						      </tr>
+						    </thead>
+						    <tbody>
+                             {% for i in data %}
+                          <tr class="text-center">
+                        <td>{{forloop.counter}}</td>
+                        <td class="product-name">{{i.buyername}} <p>&#x20B9;{{i.totalamount}}</p></td>
+                        <td class="quantity"> {{i.cradnumber}}</td>
+                        <td>{{i.cardexpiry}}</td>
+                        <td>{{i.trnx_date}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+						    </tbody>
+						  </table>
+					  </div>
+					<center>
+
+					</center>
+
+    			</div>
+    		</div>
+			</div>
+		</section>
+{%endblock%}
